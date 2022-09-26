@@ -99,33 +99,34 @@
   -webkit-backdrop-filter: blur(2px);
 
   cursor: pointer;
-  transition: all 1s;
+  transition: all 0.5s;
+}
+
+.circle-btn-container {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  right: -2.4%;
+  top: 15%;
 }
 
 .circle-btn {
   width: 2.8rem;
   height: 2.8rem;
 
+  margin-bottom: 0.6rem;
+
   background: #ffa500;
   box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5);
   color: #FFF;
   border-radius: 50%;
-
-  position: absolute;
-  right: -2.4%;
 }
 
 .circle-btn:hover {
   background: rgb(255, 225, 0);
 }
 
-.add-btn {
-  top: 15%;
-}
-
-.remove-btn {
-  top: 22.5%
-}
 
 .total {
   display: flex;
@@ -151,16 +152,41 @@
 }
 
 .compute-btn {
+  position: relative;
   height: 2.8rem;
   width: 8.6rem;
   padding: 0 1.8rem;
+
   margin-left: auto;
   font-size: 14px;
   text-transform: uppercase;
   color: #FFF;
   font-weight: 700 !important;
-  background: rgb(255, 165, 0, .8);
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
+}
+
+.compute-btn span{
+  position: relative;
+  z-index: 2;
+}
+
+.compute-btn:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffa500;
+  border-radius: 10px;
+  transition: all .25s;
+}
+
+.compute-btn:hover:after{
+  width: 100%;
 }

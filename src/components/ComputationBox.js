@@ -5,6 +5,12 @@ import { CircleButton } from "./Button/CircleButton";
 import { Total } from "./Table/Total";
 import { ComputeButton } from "./Button/ComputeButton";
 import { useState, useEffect } from "react";
+import {
+  IoAddOutline,
+  IoRemoveOutline,
+  IoReloadOutline,
+  IoTrashOutline
+} from "react-icons/io5";
 
 export const ComputationBox = () => {
   const [count, setCount] = useState(0);
@@ -29,6 +35,16 @@ export const ComputationBox = () => {
       ...gradeValues,
       [i]: val,
     });
+  };
+
+  const handleReset = () => {
+    setUnitValues(Array(count).fill(0));
+    setGradeValues(Array(count).fill(parseFloat("0.0").toFixed(1)))
+  };
+
+  const handleDelete = () => {
+    handleReset();
+    setCount(0);
   };
 
   const sum = (obj) => {
@@ -56,13 +72,15 @@ export const ComputationBox = () => {
     <div className="box-container">
       <div className="circle-btn-container">
         <CircleButton
-          btnName="add"
+          icon={<IoAddOutline size="1.6em" />} 
           onClick={() => setCount((prev) => prev + 1)}
         />
         <CircleButton
-          btnName="remove"
+          icon={<IoRemoveOutline size="1.6em" />}
           onClick={() => setCount((prev) => (prev !== 0 ? prev - 1 : prev))}
         />
+        <CircleButton icon={<IoReloadOutline size="1.6em" />} onClick={handleReset} />
+        <CircleButton icon={<IoTrashOutline size="1.6em" />} onClick={handleDelete} />
       </div>
       <Header />
       <div className="body">
