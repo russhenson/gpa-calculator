@@ -1,0 +1,192 @@
+#gradient-canvas {
+  width: 100%;
+  height: 100vh;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  --gradient-color-1: #d1d5d8;
+  --gradient-color-2: #3498db;
+  --gradient-color-3: #e74c3c;
+  --gradient-color-4: #f1c40f;
+}
+
+.box-container {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 60rem;
+  height: 85%;
+
+  padding: 2rem;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.5px);
+  -webkit-backdrop-filter: blur(4.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.8rem 2rem;
+  margin-bottom: 0.8rem;
+
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 12px;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.grade-header {
+  padding-right: 1rem;
+}
+
+.cell {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 12px;
+}
+
+.body {
+  overflow: scroll;
+  height: 75%;
+}
+
+.course-input {
+  width: 60%;
+}
+
+.grading {
+  width: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.grading-input,
+.grading-total {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.grading-input input {
+  text-align: center;
+  width: 30%;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.circle-btn-container {
+  display: flex;
+  flex-direction: column;
+
+  position: absolute;
+  right: -2.4%;
+  top: 15%;
+}
+
+.circle-btn {
+  width: 2.8rem;
+  height: 2.8rem;
+
+  margin-bottom: 0.6rem;
+
+  background: #ffa500;
+  box-shadow: 0 4px 10px rgba(255, 165, 0, 0.5);
+  color: #FFF;
+  border-radius: 50%;
+}
+
+.circle-btn:hover {
+  background: rgb(255, 225, 0);
+}
+
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  margin-bottom: 0.8rem;
+  margin-top: 0.8rem;
+
+  color: rgb(0, 0, 0, 0.7);
+  font-size: 11px;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.total span {
+  font-size: 14px !important;
+  font-weight: 700;
+  margin-left: 0.4rem;
+}
+
+.compute-btn {
+  position: relative;
+  height: 2.8rem;
+  width: 8.6rem;
+  padding: 0 1.8rem;
+
+  margin-left: auto;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #FFF;
+  font-weight: 700 !important;
+
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.compute-btn span{
+  position: relative;
+  z-index: 2;
+}
+
+.compute-btn:after{
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #ffa500;
+  border-radius: 10px;
+  transition: all .25s;
+}
+
+.compute-btn:hover:after{
+  width: 100%;
+}
